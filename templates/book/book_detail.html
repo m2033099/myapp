@@ -1,0 +1,25 @@
+{% extends 'book/base.html' %}
+{% load static %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+{% block content %}
+
+
+<h3>{{ book.title }}</h3>
+
+<h4 class="text-left">おすすめポイント</h4>
+
+<div class=row>
+    <div class="col-sm-12 border text-justify" style="overflow-wrap: break-word;">
+        {{ book.recommend_context }}
+    </div>
+</div>
+
+
+
+
+</table>
+
+<a href="{% url 'book:book_update' book_id=book.id %}" class="btn btn-primary btn-sm">編集</a>
+
+{% endblock content %}

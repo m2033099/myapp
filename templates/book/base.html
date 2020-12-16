@@ -1,0 +1,53 @@
+{% load static %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+    <!--Bootstrap-->
+    <title>Recommend Book</title>
+
+
+</head>
+
+<body>
+    <header class='site-header'>
+        <nav class="navbar navbar-expand navbar-dark" style='background-color:#2d2d2d'>
+            <a href="{% url 'book:book_list' %}" class='navbar-brand'>Home</a>
+            <ul class='navbar-nav'>
+                {% if user.is_authenticated %}
+                <li class=nav-item>
+                    <span class='navbar-text'>{{ user }}</span>
+                </li>
+                <li>
+                    <a href="{% url 'logout' %}" class='logout nav-link'>Logout</a>
+                </li>
+                {% else %}
+                <li class='nav-item'>
+                    <a href="{% url 'login' %}" class='login nav-link'>Login</a>
+                </li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+    <main role='main' class='container-field' style="margin: 15px;">
+        <div class='container'>
+
+            {% block content %}{% endblock content %}
+        </div>
+
+
+    </main>
+
+
+    <script src="{% static 'js/lib/jquery.min.js' %}"></script>
+    <script src="{% static 'js/lib/jquery.sticky.js' %}"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js"></script>
+</body>
+
+</html>

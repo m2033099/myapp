@@ -1,0 +1,17 @@
+{% extends 'book/base.html' %}
+{% load static %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+{% block content %}
+
+<h3>{{ book.title }}</h3>
+<p>削除してもよろしいですか？</p>
+<form method="post">
+    {% csrf_token %}
+    <input type="submit" value="削除">
+</form>
+
+<a href="{% url 'book:book_list'%}">Homeに戻る</a>
+
+
+{% endblock content %}

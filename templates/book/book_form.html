@@ -1,0 +1,16 @@
+{% extends 'book/base.html' %}
+{% load static %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+{% block content %}
+
+<h1>本の{{ object|yesno:'更新,追加'}}</h1>
+
+<form action='' method='post'>{% csrf_token %}
+    {{ form.as_p }}
+    <button type='submit' class='submit'>{{ object|yesno:'更新,追加'}}</button>
+</form>
+
+<a href="{% url 'book:book_list' %}" class='btn btn-outline-primary'>Homeに戻る</a>
+
+{% endblock content %}

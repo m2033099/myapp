@@ -1,0 +1,68 @@
+{% extends 'book/base.html' %}
+{% load static %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+{% block content %}
+<h1>こんにちは、{{ user }}さん</h1>
+<p>おすすめしたい本を追加して下さい。</p>
+
+<h3><i class="fas fa-book" style="margin-right: 15px;"></i>おすすめ本一覧</h3>
+
+<table class="table table-bordered table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th class="text-center">カテゴリー</th>
+            <th class="text-center">タイトル</th>
+            <th class="text-center">おすすめレベル</th>
+            <th class="text-center">いいね</th>
+            <th class="text-center"></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for book in books %}
+        <tr>
+            <td class="text-center">{{ book.category }}</td>
+            <td class="text-center">{{ book.title }}</td>
+            <td class="text-center">{{ book.recommend_level }} / 10</td>
+            <td class="text-center">
+                <a href="{% url 'book:like' book_id=book.id %}" class="btn btn-primary btn-sm">いいね！({{book.like }})</a>
+            </td>
+            <td class="text-center">
+                {% if user.is_authenticated %}
+                <a href="{% url 'book:book_detail' book_id=book.id %}" class="btn btn-primary btn-sm">詳細</a>
+                <a href="{% url 'book:book_delete' book_id=book.id %}" class="btn btn-secondary btn-sm">削除</a>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+
+
+
+</table>
+{% if books.has_previous %}
+<a href="?page={{ books.previous_page_number }}">&lt; 前のページ</a>
+{% else %}
+<span>&lt; 前のページ</span>
+{% endif %}
+
+{{ books.number }}ページ
+
+{% if products.has_next %}
+<a href="?page={{ books.next_page_number }}">次のページ &gt;</a>
+{% else %}
+<span>次のページ &gt;</span>
+{% endif %}
+
+{% if user.is_authenticated %}
+<div class="row">
+    <div class="col-sm-1">
+        <a href="{% url 'book:book_add' %}" class="btn btn-primary btn-sm">追加</a>
+    </div>
+</div>
+{% endif %}
+
+
+
+
+{% endblock content %}
