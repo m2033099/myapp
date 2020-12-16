@@ -33,7 +33,7 @@ ALLOWED_HOSTS = ['*']
 INSTALLED_APPS = [
     'accounts',
     'book',
-    
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -67,7 +67,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
 
             ],
-            
+
         },
     },
 ]
@@ -85,9 +85,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'postgres',
         'USER': 'postgres',
-        'PASSWORD': 'mayama-WR619',
+        'PASSWORD': '',
         'HOST': '127.0.0.1',
-        'PORT': 9619,
+        'PORT': '',
     }
 }
 
