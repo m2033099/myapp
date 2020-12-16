@@ -22,6 +22,7 @@ class Book(models.Model):
     category = models.ForeignKey(Category, verbose_name='カテゴリー',
                                  on_delete=models.SET_NULL, null=True, blank=True)
     title = models.CharField('本のタイトル', max_length=100)
+    author = models.CharField('著者', max_length=100)
     recommend_level = models.IntegerField('おすすめレベル', default=1, validators=[
         MaxValueValidator(10), MinValueValidator(1)])
     recommend_context = models.TextField('おすすめポイント')

@@ -12,6 +12,7 @@
         <tr>
             <th class="text-center">カテゴリー</th>
             <th class="text-center">タイトル</th>
+            <th class="text-center">著者</th>
             <th class="text-center">おすすめレベル</th>
             <th class="text-center">いいね</th>
             <th class="text-center"></th>
@@ -22,6 +23,7 @@
         <tr>
             <td class="text-center">{{ book.category }}</td>
             <td class="text-center">{{ book.title }}</td>
+            <td class="text-center">{{ book.author }}</td>
             <td class="text-center">{{ book.recommend_level }} / 10</td>
             <td class="text-center">
                 <a href="{% url 'book:like' book_id=book.id %}" class="btn btn-primary btn-sm">いいね！({{book.like }})</a>
