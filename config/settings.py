@@ -15,7 +15,7 @@ import os
 import django_heroku
 
 from socket import gethostname
-from os import environ
+
 
 HOSTNAME = gethostname()
 
@@ -23,7 +23,7 @@ if 'local' in HOSTNAME:
     import local_settings
     SECRET_KEY = local_settings.SECRET_KEY
 else:
-    SECRET_KEY = environ['SECRET_KEY']
+    SECRET_KEY = os.environ['SECRET_KEY']
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
