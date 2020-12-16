@@ -13,7 +13,17 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 from pathlib import Path
 import os
 import django_heroku
-import local_settings
+
+from socket import gethostname
+from os import environ
+
+HOSTNAME = gethostname()
+
+if 'local' in HOSTNAME:
+    import local_settings
+    SECRET_KEY = local_settings.SECRET_KEY
+else:
+    SECRET_KEY = environ['SECRET_KEY']
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
