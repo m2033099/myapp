@@ -19,7 +19,7 @@
 
 
 </table>
-
+{% if user.is_authenticated %}
 <a href="{% url 'book:book_update' book_id=book.id %}" class="btn btn-primary btn-sm">編集</a>
-
+{% endif %}
 {% endblock content %}
