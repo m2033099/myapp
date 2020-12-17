@@ -14,6 +14,7 @@ from pathlib import Path
 import os
 import django_heroku
 
+
 from .local_settings import *
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -86,6 +87,16 @@ LOGOUT_REDIRECT_URL = '/accounts/login'
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': '',
+        'HOST': 'localhost',
+        'PORT': '',
+    }
+}
 
 
 # Password validation
