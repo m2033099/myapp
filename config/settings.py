@@ -14,7 +14,7 @@ from pathlib import Path
 import os
 import django_heroku
 
-from .local_settings import a, b
+from .local_settings import *
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = a
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -83,8 +83,6 @@ WSGI_APPLICATION = 'config.wsgi.application'
 LOGIN_REDIRECT_URL = '/book/'
 LOGOUT_REDIRECT_URL = '/accounts/login'
 
-
-DATABASES = b
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
