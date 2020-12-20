@@ -20,9 +20,11 @@
         <nav class="navbar navbar-expand navbar-dark" style='background-color:#2d2d2d'>
             <a href="{% url 'book:book_list' %}" class='navbar-brand'>Home</a>
             <ul class='navbar-nav'>
+                <!--ログイン時にはログインしたユーザー名とLogoutを表示する-->
                 {% if user.is_authenticated %}
 
                 <li><a href="{% url 'logout' %}">Logout</a></li>
+                <!--ログインしていない時はLoginを表示する-->
                 {% else %}
                 <li class='nav-item'><a href='#' class='nav-link'>Login</a></li>
 
