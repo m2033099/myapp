@@ -11,7 +11,10 @@ from .forms import BookEditForm
 
 def list_book(request):
     books = Book.objects.all()
+    # いいねや編集後に順番が変わらないように本を登録した順(id順)に並び替える
     books = Book.objects.order_by('id')
+
+    # 10冊を超えたら次のページを作る
     paginator = Paginator(books, 10)
 
     page = request.GET.get('page', 1)
