@@ -15,7 +15,7 @@ def list_book(request):
 
     page = request.GET.get('page', 1)
     books = paginator.page(page)
-
+    books = Book.objects.order_by('id')
     return TemplateResponse(request, 'book/index.html', {'books': books})
 
 
@@ -54,6 +54,7 @@ def like(request, book_id):
 
     # この関数が呼び出された時にlikeに１を足して保存する
     book.like += 1
+
     book.save()
     return redirect('/book/')
 
