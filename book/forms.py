@@ -8,18 +8,8 @@ class BookEditForm(forms.ModelForm):
         fields = (
             'category',
             'title',
+            'author',
             'recommend_level',
             'recommend_context',
 
-        )
-
-
-class BookAdd(forms.ModelForm):
-    class Meta:
-        model = Book
-        fields = (
-            'category',
-            'title',
-            'recommend_level',
-            'recommend_context',
         )

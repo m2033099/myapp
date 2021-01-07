@@ -22,8 +22,8 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     # 上のaccountsから探して、なかったらしたのaccountsから探す
     path('accounts/', include('accounts.urls')),
-    # urlが何もない時に、Login画面に移動させる。
-    path('', RedirectView.as_view(url='/accounts/login')),
+    # urlが何もない時に、Home画面に移動させる。
+    path('', RedirectView.as_view(url='book/')),
     path('book/', include('book.urls')),
 
 ]

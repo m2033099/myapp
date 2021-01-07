@@ -28,7 +28,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["dry-hollows-37306.herokuapp.com"]
+ALLOWED_HOSTS = ["*"]
 
 # Application definition
 
@@ -80,7 +80,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'config.wsgi.application'
 
 LOGIN_REDIRECT_URL = '/book/'
-LOGOUT_REDIRECT_URL = '/accounts/login'
+LOGOUT_REDIRECT_URL = '/book/'
 
 
 # Database

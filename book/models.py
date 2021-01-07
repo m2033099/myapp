@@ -13,9 +13,11 @@ class Category(models.Model):
     def __str__(self):
         return self.name[:50]
 
+# 本のモデル
+
 
 class Book(models.Model):
-    # 教科書のモデル
+    # テーブル名をbookにする
     class Meta:
         db_table = 'book'
 
@@ -29,6 +31,7 @@ class Book(models.Model):
     date_posted = models.DateTimeField('投稿時間', auto_now=True)
     like = models.IntegerField(default=0)
 
+    # 管理画面で、タイトルが表示されるようにする。
     def __str__(self):
         return self.title
 

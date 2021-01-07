@@ -6,6 +6,7 @@ from django.shortcuts import redirect
 from django.views import generic
 
 from .models import Book
+from .forms import BookEditForm
 
 
 def list_book(request):
@@ -35,6 +36,7 @@ def book_delete(request, book_id):
     except Book.DoesNotExist:
         raise Http404
 
+    # book_delete.htmlのformからデータが送られてきた時にそのデータを消す
     if request.method == 'POST':
         book.delete()
         return HttpResponseRedirect(reverse('book:book_list'))
@@ -61,6 +63,23 @@ class Book_Add(generic.edit.CreateView):
     fields = '__all__'
 
 
-class Book_Update(generic.edit.UpdateView):
-    model = Book
-    fields = '__all__'
+def book_edit(request, book_id):
+    try:
+        book = Book.objects.get(id=book_id)
+    # 本が存在しない時はエラーメッセージを表示する
+    except Book.DoesNotExist:
+        raise Http404
+
+    # book_edit.htmlのformからデータが送られてきた時にそのデータを保存する
+    if request.method == 'POST':
+        form = BookEditForm(request.POST, instance=book)
+        if form.is_valid():
+            form.save()
+            # 編集後はHome画面に戻る
+            return HttpResponseRedirect(reverse('book:book_list'))
+
+    else:
+        form = BookEditForm(instance=book)
+    # book_edit.htmlを呼び出す
+    return TemplateResponse(request, 'book/book_edit.html',
+                            {'form': form, 'book': book})
