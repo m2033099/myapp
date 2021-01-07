@@ -11,11 +11,12 @@ from .forms import BookEditForm
 
 def list_book(request):
     books = Book.objects.all()
+    books = Book.objects.order_by('id')
     paginator = Paginator(books, 10)
 
     page = request.GET.get('page', 1)
     books = paginator.page(page)
-    books = Book.objects.order_by('id')
+
     return TemplateResponse(request, 'book/index.html', {'books': books})
 
 
