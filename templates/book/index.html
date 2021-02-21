@@ -58,7 +58,7 @@
 
 <!--ログインしている時は追加ボタンを表示する-->
 {% if user.is_authenticated %}
-<div style="float: right;">
+<div style="float: left;">
     <a href="{% url 'book:book_add' %}" class="btn btn-primary btn-sm">追加</a>
 </div>
 <div style="float: right;">
