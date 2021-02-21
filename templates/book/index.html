@@ -58,18 +58,14 @@
 
 <!--ログインしている時は追加ボタンを表示する-->
 {% if user.is_authenticated %}
-<div class="row">
-    <div class="col-xs-1">
-        <a href="{% url 'book:book_add' %}" class="btn btn-primary btn-sm">追加</a>
-    </div>
-    <div class="col-xs-10">
-
-    </div>
-    <div class="col-xs-1">
-        <!--tweetボタン-->
-        <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=本を追加しました。#recommend_book">Tweet</a>
-    </div>
+<div style="float: right;">
+    <a href="{% url 'book:book_add' %}" class="btn btn-primary btn-sm">追加</a>
 </div>
+<div style="float: right;">
+    <!--tweetボタン-->
+    <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=本を追加しました。#recommend_book">Tweet</a>
+</div>
+
 {% endif %}
 
 {% endblock content %}
