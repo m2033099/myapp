@@ -18,7 +18,7 @@
 <body>
     <header class='site-header'>
         <nav class="navbar navbar-expand navbar-dark" style='background-color:#2d2d2d'>
-            <a href="{% url 'book:book_list' %}" class='navbar-brand'>Home</a>
+            <a href="{% url 'book:book_list' %}" class='navbar-brand' style="margin-left: 25px;">Home</a>
             <ul class='navbar-nav'>
                 <!--ログイン時にはログインしたユーザー名とLogoutを表示する-->
                 {% if user.is_authenticated %}
