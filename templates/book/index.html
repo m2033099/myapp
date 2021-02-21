@@ -42,19 +42,21 @@
 
 
 </table>
-{% if books.has_previous %}
-<a href="?page={{ books.previous_page_number }}">&lt; 前のページ</a>
-{% else %}
-<span>&lt; 前のページ</span>
-{% endif %}
+<div style="float: left;">
+    {% if books.has_previous %}
+    <a href="?page={{ books.previous_page_number }}">&lt; 前のページ</a>
+    {% else %}
+    <span>&lt; 前のページ</span>
+    {% endif %}
 
-{{ books.number }}ページ
+    {{ books.number }}ページ
 
-{% if books.has_next %}
-<a href="?page={{ books.next_page_number }}">次のページ &gt;</a>
-{% else %}
-<span>次のページ &gt;</span>
-{% endif %}
+    {% if books.has_next %}
+    <a href="?page={{ books.next_page_number }}">次のページ &gt;</a>
+    {% else %}
+    <span>次のページ &gt;</span>
+    {% endif %}
+</div>
 
 <!--ログインしている時は追加ボタンを表示する-->
 {% if user.is_authenticated %}
