@@ -3,29 +3,11 @@
 
 {% block content %}
 
-
-<h3>{{ book.title }}</h3>
-
-<h4 class="text-left">おすすめポイントや得られた知識を教えてください</h4>
-
-<div class=row>
-    <!--style="overflow-wrap: break-word;で文字が画面のサイズを超えた時に改行する-->
-    <div class="col-sm-12 border text-justify" style="overflow-wrap: break-word;">
-        {{ book.recommend_context }}
-    </div>
-</div>
-</table>
-<!--ログインしている時は編集ボタンを表示する-->
-{% if user.is_authenticated %}
-<a href="{% url 'book:book_edit' book_id=book.id %}" class="btn btn-primary btn-sm">編集</a>
-{% endif %}
-
 {% if book.title == '独学プログラマー' %}
 <a target="_blank"
     href="https://www.amazon.co.jp/gp/product/B07BKVP9QY/ref=as_li_tl?ie=UTF8&camp=247&creative=1211&creativeASIN=B07BKVP9QY&linkCode=as2&tag=m2033099-22&linkId=a7c7630bde9caaaa0d986e9b4c740fc9">
     <img border="0"
-        　src="
-        //ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=JP&ASIN=B07BKVP9QY&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=_SL250_&tag=m2033099-22"
+        　src="//ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=JP&ASIN=B07BKVP9QY&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=_SL250_&tag=m2033099-22"
         style="float: right;"></a>
 {% elif book.title == '君の膵臓をたべたい' %}
 <a target="_blank"
@@ -70,6 +52,23 @@
     src="https://rcm-fe.amazon-adsystem.com/e/cm?ref=tf_til&t=m2033099-22&m=amazon&o=9&p=8&l=as1&IS2=1&detail=1&asins=B00KD2IK4S&linkId=bf519647a164385c0a7681ce1265bbf4&bc1=000000&amp;lt1=_blank&fc1=333333&lc1=0066c0&bg1=ffffff&f=ifr">
 </iframe>
 {% endif %}
+
+<h3>{{ book.title }}</h3>
+
+<h4 class="text-left">おすすめポイントや得られた知識を教えてください</h4>
+
+<div class=row>
+    <!--style="overflow-wrap: break-word;で文字が画面のサイズを超えた時に改行する-->
+    <div class="col-sm-12 border text-justify" style="overflow-wrap: break-word;">
+        {{ book.recommend_context }}
+    </div>
+</div>
+</table>
+<!--ログインしている時は編集ボタンを表示する-->
+{% if user.is_authenticated %}
+<a href="{% url 'book:book_edit' book_id=book.id %}" class="btn btn-primary btn-sm">編集</a>
+{% endif %}
+
 
 
 {% endblock content %}
