@@ -30,13 +30,13 @@
             </td>
             <td class="text-center">
                 <a href="{% url 'book:book_detail' book_id=book.id %}" class="btn btn-primary btn-sm"
-                    style="margin-right: 2px;">詳細</a>
+                    style="margin-right: 20px;">詳細</a>
                 <!--ログインしている時は削除ボタンを表示する-->
                 {% if user.is_authenticated %}
                 <a href="{% url 'book:book_delete' book_id=book.id %}" class="btn btn-secondary btn-sm"
-                    style="margin-left: 2px;">削除</a>
+                    style="margin-left: 20px;">削除</a>
                 {% else %}
-                <a href="{% url 'login' %}" class="btn btn-secondary btn-sm" style="margin-left: 2px;">削除</a>
+                <a href="{% url 'login' %}" class="btn btn-secondary btn-sm" style="margin-left: 20px;">削除</a>
                 {% endif %}
             </td>
         </tr>
@@ -82,4 +82,10 @@
 <div style="clear: both;"></div>
 <div style="margin-bottom: 15px;"></div>
 
+<footer>
+    <script
+        type="text/javascript">amzn_assoc_ad_type = "responsive_search_widget"; amzn_assoc_tracking_id = "m2033099-22"; amzn_assoc_marketplace = "amazon"; amzn_assoc_region = "JP"; amzn_assoc_placement = ""; amzn_assoc_search_type = "search_widget"; amzn_assoc_width = "auto"; amzn_assoc_height = "auto"; amzn_assoc_default_search_category = ""; amzn_assoc_default_search_key = "プログラミング"; amzn_assoc_theme = "light"; amzn_assoc_bg_color = "FFFFFF"; </script>
+    <script
+        src="//z-fe.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1&Marketplace=JP"></script>
+</footer>
 {% endblock content %}
