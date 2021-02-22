@@ -21,19 +21,19 @@
                 <!--ログイン時にはログインしたユーザー名とLogoutを表示する-->
                 {% if user.is_authenticated %}
                 <li class=nav-item>
-                    <span class='navbar-text'>{{ user }}</span>
+                    <span class='navbar-text' style="text-align: right;">{{ user }}</span>
                 </li>
                 <li>
-                    <a href="{% url 'logout' %}" class='logout nav-link'>Logout</a>
+                    <a href="{% url 'logout' %}" class='logout nav-link' style="text-align: right;">Logout</a>
                 </li>
                 <!--ログインしていない時はLoginを表示する-->
                 {% else %}
                 <li class='nav-item'>
-                    <a href="{% url 'login' %}" class='login nav-link'>Login</a>
+                    <a href="{% url 'login' %}" class='login nav-link' style="text-align: right;">Login</a>
                 </li>
 
                 <li class="nav-item">
-                    <a href='{% url "accounts:signup" %}' class='signup nav-link'> Sign up </a>
+                    <a href='{% url "accounts:signup" %}' class='signup nav-link' style="text-align: right;">Sign up</a>
                 </li>
                 {% endif %}
             </ul>
