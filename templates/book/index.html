@@ -2,7 +2,6 @@
 {% load static %}
 
 {% block content %}
-<script type="text/javascript" src="/js/footerFixed.js"></script>
 <h1 style="margin-top: 10px;">こんにちは、{{ user }}さん</h1>
 <p>おすすめしたい本を追加して下さい。追加の際は上のメニューからLoginをお願いします。初めての方は上のSign UpをしてからLoginをお願いします。</p>
 
@@ -84,8 +83,75 @@
 <div style="margin-bottom: 15px;"></div>
 
 
-<script type="text/javascript"
-    id="footer">amzn_assoc_ad_type = "responsive_search_widget"; amzn_assoc_tracking_id = "m2033099-22"; amzn_assoc_marketplace = "amazon"; amzn_assoc_region = "JP"; amzn_assoc_placement = ""; amzn_assoc_search_type = "search_widget"; amzn_assoc_width = "auto"; amzn_assoc_height = "auto"; amzn_assoc_default_search_category = ""; amzn_assoc_default_search_key = "プログラミング"; amzn_assoc_theme = "light"; amzn_assoc_bg_color = "FFFFFF"; </script>
-<script
-    src="//z-fe.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1&Marketplace=JP"></script>
+<footer id="footer">
+    <script
+        type="text/javascript">amzn_assoc_ad_type = "responsive_search_widget"; amzn_assoc_tracking_id = "m2033099-22"; amzn_assoc_marketplace = "amazon"; amzn_assoc_region = "JP"; amzn_assoc_placement = ""; amzn_assoc_search_type = "search_widget"; amzn_assoc_width = "auto"; amzn_assoc_height = "auto"; amzn_assoc_default_search_category = ""; amzn_assoc_default_search_key = "プログラミング"; amzn_assoc_theme = "light"; amzn_assoc_bg_color = "FFFFFF"; </script>
+    <script
+        src="//z-fe.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1&Marketplace=JP"></script>
+</footer>
+<script>new function () {
+
+        var footerId = "footer";
+        //メイン
+        function footerFixed() {
+            //ドキュメントの高さ
+            var dh = document.getElementsByTagName("body")[0].clientHeight;
+            //フッターのtopからの位置
+            document.getElementById(footerId).style.top = "0px";
+            var ft = document.getElementById(footerId).offsetTop;
+            //フッターの高さ
+            var fh = document.getElementById(footerId).offsetHeight;
+            //ウィンドウの高さ
+            if (window.innerHeight) {
+                var wh = window.innerHeight;
+            } else if (document.documentElement && document.documentElement.clientHeight != 0) {
+                var wh = document.documentElement.clientHeight;
+            }
+            if (ft + fh < wh) {
+                document.getElementById(footerId).style.position = "relative";
+                document.getElementById(footerId).style.top = (wh - fh - ft - 1) + "px";
+            }
+        }
+
+        //文字サイズ
+        function checkFontSize(func) {
+
+            //判定要素の追加	
+            var e = document.createElement("div");
+            var s = document.createTextNode("S");
+            e.appendChild(s);
+            e.style.visibility = "hidden"
+            e.style.position = "absolute"
+            e.style.top = "0"
+            document.body.appendChild(e);
+            var defHeight = e.offsetHeight;
+
+            //判定関数
+            function checkBoxSize() {
+                if (defHeight != e.offsetHeight) {
+                    func();
+                    defHeight = e.offsetHeight;
+                }
+            }
+            setInterval(checkBoxSize, 1000)
+        }
+
+        //イベントリスナー
+        function addEvent(elm, listener, fn) {
+            try {
+                elm.addEventListener(listener, fn, false);
+            } catch (e) {
+                elm.attachEvent("on" + listener, fn);
+            }
+        }
+
+        addEvent(window, "load", footerFixed);
+        addEvent(window, "load", function () {
+            checkFontSize(footerFixed);
+        });
+        addEvent(window, "resize", footerFixed);
+
+    }
+
+</script>
 {% endblock content %}
