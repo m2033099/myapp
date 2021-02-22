@@ -10,11 +10,11 @@
 <table class="table table-bordered table-striped">
     <thead class="thead-dark">
         <tr>
-            <th class="text-center" style="width: 130px;">カテゴリー</th>
+            <th class="text-center" style="width: 120px;">カテゴリー</th>
             <th class="text-center" style="width: 200px;">タイトル</th>
             <th class="text-center" style="width: 150px;">著者</th>
             <th class="text-center" style="width: 150px;">おすすめレベル</th>
-            <th class="text-center" style="width: 110px;">いいね</th>
+            <th class="text-center" style="width: 120px;">いいね</th>
             <th class="text-center" style="width: 150px;"></th>
         </tr>
     </thead>
@@ -29,12 +29,14 @@
                 <a href="{% url 'book:like' book_id=book.id %}" class="btn btn-primary btn-sm">いいね！({{book.like }})</a>
             </td>
             <td class="text-center">
-                <a href="{% url 'book:book_detail' book_id=book.id %}" class="btn btn-primary btn-sm">詳細</a>
+                <a href="{% url 'book:book_detail' book_id=book.id %}" class="btn btn-primary btn-sm"
+                    style="margin-right: 2px;">詳細</a>
                 <!--ログインしている時は削除ボタンを表示する-->
                 {% if user.is_authenticated %}
-                <a href="{% url 'book:book_delete' book_id=book.id %}" class="btn btn-secondary btn-sm">削除</a>
+                <a href="{% url 'book:book_delete' book_id=book.id %}" class="btn btn-secondary btn-sm"
+                    style="margin-left: 2px;">削除</a>
                 {% else %}
-                <a href="{% url 'login' %}" class="btn btn-secondary btn-sm">削除</a>
+                <a href="{% url 'login' %}" class="btn btn-secondary btn-sm" style="margin-left: 2px;">削除</a>
                 {% endif %}
             </td>
         </tr>
