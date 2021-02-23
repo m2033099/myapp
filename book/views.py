@@ -15,7 +15,7 @@ def list_book(request):
     books = Book.objects.order_by('id')
 
     # 10冊を超えたら次のページを作る
-    paginator = Paginator(books, 10)
+    paginator = Paginator(books, 8)
 
     page = request.GET.get('page', 1)
     books = paginator.page(page)
