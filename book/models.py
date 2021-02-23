@@ -29,6 +29,8 @@ class Book(models.Model):
         MaxValueValidator(10), MinValueValidator(1)])
     recommend_context = models.TextField('おすすめポイント')
     date_posted = models.DateTimeField('投稿時間', auto_now=True)
+    href = models.CharField('href')
+    src = models.CharField('src')
     like = models.IntegerField(default=0)
 
     # 管理画面で、タイトルが表示されるようにする。
