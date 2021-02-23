@@ -6,33 +6,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport">
-    <!--表示領域の横幅をデバイスと同じ横幅にする（width=device-width）
-      表示倍率を1倍にする（initial-scale=1）
-      iOSのSafariで表示倍率を自動的に縮小する処理を無効にする（shrink-to-fit=no）-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <!--Bootstrap-->
     <script data-ad-client="ca-pub-1976866996688533" async
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <title>Recommend Book</title>
-
 </head>
 
 <body>
     <header class='site-header'>
         <nav class="navbar navbar-expand navbar-dark" style='background-color:#2d2d2d'>
-            <a href="{% url 'book:book_list' %}" class='navbar-brand' style="margin-left: 25px;">Home</a>
+            <ul class='navbar-nav mr-auto'>
+                <li class=nav-item>
+                    <a href="{% url 'book:book_list' %}" class='navbar-brand' style="margin-left: 25px;">Recommend
+                        Book</a>
+                </li>
+            </ul>
             <ul class='navbar-nav'>
                 <!--ログイン時にはログインしたユーザー名とLogoutを表示する-->
                 {% if user.is_authenticated %}
-
-                <li><a href="{% url 'logout' %}">Logout</a></li>
+                <li class=nav-item>
+                    <span class='navbar-text' style="text-align: right;">{{ user }}</span>
+                </li>
+                <li>
+                    <a href="{% url 'logout' %}" class='logout nav-link'>Logout</a>
+                </li>
                 <!--ログインしていない時はLoginを表示する-->
                 {% else %}
-                <li class='nav-item'><a href='#' class='nav-link'>Login</a></li>
-
+                <li class='nav-item'>
+                    <a href="{% url 'login' %}" class='login nav-link'>Login</a>
+                </li>
 
                 <li class="nav-item">
-                    <a href='{% url "accounts:signup" %}' class='signup nav-link'> Sign up </a>
+                    <a href='{% url "accounts:signup" %}' class='signup nav-link'>Sign up</a>
                 </li>
                 {% endif %}
             </ul>
@@ -40,27 +46,43 @@
     </header>
     <main role='main' class='container-field'>
         <div style="margin-left: 25px; margin-right: 25px; margin-bottom: 15px; padding: 0px;">
-
-            {% block content %}{% endblock content %}
-
         </div>
+        {% block content %}{% endblock content %}
+
     </main>
-
-
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js"></script>
+    <!--twitter-->
+    <script>
+        window.twttr = (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0],
+                t = window.twttr || {};
+            if (d.getElementById(id)) return t;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "https://platform.twitter.com/widgets.js";
+            fjs.parentNode.insertBefore(js, fjs);
+
+            t._e = [];
+            t.ready = function (f) {
+                t._e.push(f);
+            };
+
+            return t;
+        }(document, "script", "twitter-wjs"));
+    </script>
+    <script type="text/javascript">
+        amzn_assoc_ad_type = "link_enhancement_widget";
+        amzn_assoc_tracking_id = "m2033099-22";
+        amzn_assoc_linkid = "89836b116d919bbd9925cbb39b56aef7";
+        amzn_assoc_placement = "";
+        amzn_assoc_marketplace = "amazon";
+        amzn_assoc_region = "JP";
+    </script>
+    <script
+        src="//ws-fe.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1&MarketPlace=JP"></script>
 </body>
-<script type="text/javascript">
-    amzn_assoc_ad_type = "link_enhancement_widget";
-    amzn_assoc_tracking_id = "m2033099-22";
-    amzn_assoc_linkid = "89836b116d919bbd9925cbb39b56aef7";
-    amzn_assoc_placement = "";
-    amzn_assoc_marketplace = "amazon";
-    amzn_assoc_region = "JP";
-</script>
-<script
-    src="//ws-fe.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1&MarketPlace=JP"></script>
 
 </html>
