@@ -2,6 +2,11 @@
 {% load static %}
 
 {% block content %}
+<style type="text/css">
+    .img {
+        padding: 10px, 15px;
+    }
+</style>
 <h1 style="margin-top: 10px;">こんにちは、{{ user }}さん</h1>
 <p>おすすめしたい本を追加して下さい。追加の際は上のメニューからLoginをお願いします。初めての方は上のSign UpをしてからLoginをお願いします。</p>
 
@@ -24,70 +29,70 @@
             <td class="text-center">
                 {% if book.title == '独学プログラマー' %}
                 <a target="_blank"
-                    href="https://www.amazon.co.jp/gp/product/B07BKVP9QY/ref=as_li_tl?ie=UTF8&camp=247&creative=1211&creativeASIN=B07BKVP9QY&linkCode=as2&tag=m2033099-22&linkId=08c3a28c0b60c0ecea44995af31b6deb"><img
+                    href="https://www.amazon.co.jp/gp/product/B07BKVP9QY/ref=as_li_tl?ie=UTF8&camp=247&creative=1211&creativeASIN=B07BKVP9QY&linkCode=as2&tag=m2033099-22&linkId=864f7db55ec287004d123d9e19cc0f37"><img
                         border="0"
-                        src="//ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=JP&ASIN=B07BKVP9QY&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=_SL250_&tag=m2033099-22"
-                        style="margin: 15px;"></a>
+                        src="//ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=JP&ASIN=B07BKVP9QY&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=_SL110_&tag=m2033099-22"
+                        class="img"></a>
                 {% elif book.title == '君の膵臓をたべたい' %}
                 <a target="_blank"
-                    href="https://www.amazon.co.jp/gp/product/B071RFTDZG/ref=as_li_tl?ie=UTF8&camp=247&creative=1211&creativeASIN=B071RFTDZG&linkCode=as2&tag=m2033099-22&linkId=46a6765715ee9df7baa2d6e9f0a080ef">
-                    <img border="0"
-                        src="//ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=JP&ASIN=B071RFTDZG&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=_SL250_&tag=m2033099-22"
-                        style="margin: 15px;"></a>
+                    href="https://www.amazon.co.jp/gp/product/B071RFTDZG/ref=as_li_tl?ie=UTF8&camp=247&creative=1211&creativeASIN=B071RFTDZG&linkCode=as2&tag=m2033099-22&linkId=ce71bfd26eb1ff9cce28dcc0e4fee65d"><img
+                        border="0"
+                        src="//ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=JP&ASIN=B071RFTDZG&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=_SL110_&tag=m2033099-22"
+                        class="img"></a>
                 {% elif book.title == '超集中力' %}
                 <a target="_blank"
-                    href="https://www.amazon.co.jp/gp/product/B01FLFFF2Q/ref=as_li_tl?ie=UTF8&camp=247&creative=1211&creativeASIN=B01FLFFF2Q&linkCode=as2&tag=m2033099-22&linkId=f712b2aa6a99c85574059bce769acc3e"><img
+                    href="https://www.amazon.co.jp/gp/product/B01FLFFF2Q/ref=as_li_tl?ie=UTF8&camp=247&creative=1211&creativeASIN=B01FLFFF2Q&linkCode=as2&tag=m2033099-22&linkId=b60c0a574394eefef49fe573e2ffdb31"><img
                         border="0"
-                        src="//ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=JP&ASIN=B01FLFFF2Q&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=_SL250_&tag=m2033099-22"
-                        style="margin: 15px;"></a>
+                        src="//ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=JP&ASIN=B01FLFFF2Q&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=_SL110_&tag=m2033099-22"
+                        class="img"></a>
                 {% elif book.title == 'DUO' %}
                 <a target="_blank"
-                    href="https://www.amazon.co.jp/gp/product/B07KY6Z241/ref=as_li_tl?ie=UTF8&camp=247&creative=1211&creativeASIN=B07KY6Z241&linkCode=as2&tag=m2033099-22&linkId=aedc923c9196f9b0374d979d2b326baa"><img
+                    href="https://www.amazon.co.jp/gp/product/B07KY6Z241/ref=as_li_tl?ie=UTF8&camp=247&creative=1211&creativeASIN=B07KY6Z241&linkCode=as2&tag=m2033099-22&linkId=779a7f65bb514433f45f609ddb133bd8"><img
                         border="0"
-                        src="//ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=JP&ASIN=B07KY6Z241&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=_SL250_&tag=m2033099-22"
-                        style="margin: 15px;"></a>
+                        src="//ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=JP&ASIN=B07KY6Z241&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=_SL110_&tag=m2033099-22"
+                        class="img"></a>
                 {% elif book.title == 'できるポケット HTML&CSS全辞典' %}
                 <a target="_blank"
-                    href="https://www.amazon.co.jp/gp/product/B084MBQ8W1/ref=as_li_tl?ie=UTF8&camp=247&creative=1211&creativeASIN=B084MBQ8W1&linkCode=as2&tag=m2033099-22&linkId=79694dbbc35c4fa31c2f589461d283e1"><img
+                    href="https://www.amazon.co.jp/gp/product/4295008281/ref=as_li_tl?ie=UTF8&camp=247&creative=1211&creativeASIN=4295008281&linkCode=as2&tag=m2033099-22&linkId=51391a0e64d0c0f7d11030d51d70b0f4"><img
                         border="0"
-                        src="//ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=JP&ASIN=B084MBQ8W1&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=_SL250_&tag=m2033099-22"
-                        style="margin: 15px;"></a>
+                        src="//ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=JP&ASIN=4295008281&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=_SL110_&tag=m2033099-22"
+                        class="img"></a>
                 {% elif book.title == 'ストレスを力に変える教科書' %}
                 <a target="_blank"
-                    href="https://www.amazon.co.jp/gp/product/B01D34LCY2/ref=as_li_tl?ie=UTF8&camp=247&creative=1211&creativeASIN=B01D34LCY2&linkCode=as2&tag=m2033099-22&linkId=b07dbb92d467af732d06b1b5c70fbf26"><img
+                    href="https://www.amazon.co.jp/gp/product/B01D34LCY2/ref=as_li_tl?ie=UTF8&camp=247&creative=1211&creativeASIN=B01D34LCY2&linkCode=as2&tag=m2033099-22&linkId=f3945ff247d663468d7204b419414239"><img
                         border="0"
-                        src="//ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=JP&ASIN=B01D34LCY2&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=_SL250_&tag=m2033099-22"
-                        style="margin: 15px;"></a>
+                        src="//ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=JP&ASIN=B01D34LCY2&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=_SL110_&tag=m2033099-22"
+                        class="img"></a>
                 {% elif '現場で使えるDjangoの教科書' in book.title %}
                 <a target="_blank"
-                    href="https://www.amazon.co.jp/gp/product/4802094744/ref=as_li_tl?ie=UTF8&camp=247&creative=1211&creativeASIN=4802094744&linkCode=as2&tag=m2033099-22&linkId=da564bd25365d997ff6bb5c031258d56"><img
+                    href="https://www.amazon.co.jp/gp/product/4802094744/ref=as_li_tl?ie=UTF8&camp=247&creative=1211&creativeASIN=4802094744&linkCode=as2&tag=m2033099-22&linkId=7b28dcc03770e305b65f30eff45b0c7a"><img
                         border="0"
-                        src="//ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=JP&ASIN=4802094744&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=_SL250_&tag=m2033099-22"
-                        style="margin: 15px;"></a>
+                        src="//ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=JP&ASIN=4802094744&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=_SL110_&tag=m2033099-22"
+                        class="img"></a>
                 {% elif book.title == 'ゼロから作るDeep Learning' %}
                 <a target="_blank"
-                    href="https://www.amazon.co.jp/gp/product/4873117585/ref=as_li_tl?ie=UTF8&camp=247&creative=1211&creativeASIN=4873117585&linkCode=as2&tag=m2033099-22&linkId=5410131f01c9d23828b702741953c2bc"><img
+                    href="https://www.amazon.co.jp/gp/product/4873117585/ref=as_li_tl?ie=UTF8&camp=247&creative=1211&creativeASIN=4873117585&linkCode=as2&tag=m2033099-22&linkId=b6c32271b01f65de0ec4369667fbca2f"><img
                         border="0"
-                        src="//ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=JP&ASIN=4873117585&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=_SL250_&tag=m2033099-22"
-                        style="margin: 15px;"></a>
+                        src="//ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=JP&ASIN=4873117585&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=_SL110_&tag=m2033099-22"
+                        class="img"></a>
                 {% elif book.title == 'アイデアのつくり方' %}
                 <a target="_blank"
-                    href="https://www.amazon.co.jp/gp/product/4484881047/ref=as_li_tl?ie=UTF8&camp=247&creative=1211&creativeASIN=4484881047&linkCode=as2&tag=m2033099-22&linkId=e2536d6b3fef4f42aaae2bfe0fdddc8f"><img
+                    href="https://www.amazon.co.jp/gp/product/4484881047/ref=as_li_tl?ie=UTF8&camp=247&creative=1211&creativeASIN=4484881047&linkCode=as2&tag=m2033099-22&linkId=c0bdf9a02c19ebeb3cb66bc9e78ee1e9"><img
                         border="0"
-                        src="//ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=JP&ASIN=4484881047&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=_SL250_&tag=m2033099-22"
-                        style="margin: 15px;"></a>
+                        src="//ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=JP&ASIN=4484881047&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=_SL110_&tag=m2033099-22"
+                        class="img"></a>
                 {% elif book.title == 'ゼロ' %}
                 <a target="_blank"
-                    href="https://www.amazon.co.jp/gp/product/B00G9KDQQU/ref=as_li_tl?ie=UTF8&camp=247&creative=1211&creativeASIN=B00G9KDQQU&linkCode=as2&tag=m2033099-22&linkId=580adf3575d17f201edac975e38f1753"><img
+                    href="https://www.amazon.co.jp/gp/product/B00G9KDQQU/ref=as_li_tl?ie=UTF8&camp=247&creative=1211&creativeASIN=B00G9KDQQU&linkCode=as2&tag=m2033099-22&linkId=6fb0a4b402c19a60b667a30cdce8148c"><img
                         border="0"
-                        src="//ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=JP&ASIN=B00G9KDQQU&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=_SL250_&tag=m2033099-22"
-                        style="margin: 15px;"></a>
+                        src="//ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=JP&ASIN=B00G9KDQQU&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=_SL110_&tag=m2033099-22"
+                        class="img"></a>
                 {% elif book.title == 'チーズはどこへ消えた？' %}
                 <a target="_blank"
-                    href="https://www.amazon.co.jp/gp/product/B00KD2IK4S/ref=as_li_tl?ie=UTF8&camp=247&creative=1211&creativeASIN=B00KD2IK4S&linkCode=as2&tag=m2033099-22&linkId=ccb3c09d815f4619c7f57b1fb5f1a4f8"><img
+                    href="https://www.amazon.co.jp/gp/product/B00KD2IK4S/ref=as_li_tl?ie=UTF8&camp=247&creative=1211&creativeASIN=B00KD2IK4S&linkCode=as2&tag=m2033099-22&linkId=3e9d20ac1e43bf5b5e9e4cfd81eac69a"><img
                         border="0"
-                        src="//ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=JP&ASIN=B00KD2IK4S&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=_SL250_&tag=m2033099-22"
-                        style="margin: 15px;"></a>
+                        src="//ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=JP&ASIN=B00KD2IK4S&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=_SL110_&tag=m2033099-22"
+                        class="img"></a>
                 {% endif %}
             </td>
             <td class="text-center">{{ book.title }}</td>
@@ -149,76 +154,5 @@
 
 <div style="clear: both;"></div>
 
-<footer id="footer">
-    <script
-        type="text/javascript">amzn_assoc_ad_type = "responsive_search_widget"; amzn_assoc_tracking_id = "m2033099-22"; amzn_assoc_marketplace = "amazon"; amzn_assoc_region = "JP"; amzn_assoc_placement = ""; amzn_assoc_search_type = "search_widget"; amzn_assoc_width = "auto"; amzn_assoc_height = "auto"; amzn_assoc_default_search_category = ""; amzn_assoc_default_search_key = "プログラミング"; amzn_assoc_theme = "light"; amzn_assoc_bg_color = "FFFFFF"; </script>
-    <script
-        src="//z-fe.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1&Marketplace=JP"></script>
-</footer>
-<script type="text/javascript">
-    new function () {
 
-        var footerId = "footer";
-        //メイン
-        function footerFixed() {
-            //ドキュメントの高さ
-            var dh = document.getElementsByTagName("body")[0].clientHeight;
-            //フッターのtopからの位置
-            document.getElementById(footerId).style.top = "0px";
-            var ft = document.getElementById(footerId).offsetTop;
-            //フッターの高さ
-            var fh = document.getElementById(footerId).offsetHeight;
-            //ウィンドウの高さ
-            if (window.innerHeight) {
-                var wh = window.innerHeight;
-            } else if (document.documentElement && document.documentElement.clientHeight != 0) {
-                var wh = document.documentElement.clientHeight;
-            }
-            if (ft + fh < wh) {
-                document.getElementById(footerId).style.position = "relative";
-                document.getElementById(footerId).style.top = (wh - fh - ft - 1) + "px";
-            }
-        }
-
-        //文字サイズ
-        function checkFontSize(func) {
-
-            //判定要素の追加	
-            var e = document.createElement("div");
-            var s = document.createTextNode("S");
-            e.appendChild(s);
-            e.style.visibility = "hidden"
-            e.style.position = "absolute"
-            e.style.top = "0"
-            document.body.appendChild(e);
-            var defHeight = e.offsetHeight;
-
-            //判定関数
-            function checkBoxSize() {
-                if (defHeight != e.offsetHeight) {
-                    func();
-                    defHeight = e.offsetHeight;
-                }
-            }
-            setInterval(checkBoxSize, 1000)
-        }
-
-        //イベントリスナー
-        function addEvent(elm, listener, fn) {
-            try {
-                elm.addEventListener(listener, fn, false);
-            } catch (e) {
-                elm.attachEvent("on" + listener, fn);
-            }
-        }
-
-        addEvent(window, "load", footerFixed);
-        addEvent(window, "load", function () {
-            checkFontSize(footerFixed);
-        });
-        addEvent(window, "resize", footerFixed);
-
-    }
-
-</script>
 {% endblock content %}
