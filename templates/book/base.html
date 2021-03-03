@@ -18,13 +18,13 @@
         <nav class="navbar navbar-expand navbar-dark" style='background-color:#2d2d2d'>
             <ul class='navbar-nav mr-auto'>
                 <li class=nav-item>
-                    <a href="{% url 'book:book_list' %}" class='navbar-brand' style="margin-left: 25px;">Recommend
+                    <a href="{% url 'book:book_list' %}" class='navbar-brand' style="margin-left: 15px;">Recommend
                         Book</a>
                 </li>
             </ul>
             <ul class='navbar-nav'>
                 <li class=nav-item>
-                    <a href="{% url 'book:book_list' %}" class='navbar-brand' style="margin-left: 25px;">Home</a>
+                    <a href="{% url 'book:book_list' %}" class='nav-link'>Home</a>
                 </li>
                 <!--ログイン時にはログインしたユーザー名とLogoutを表示する-->
                 {% if user.is_authenticated %}
@@ -32,7 +32,7 @@
                     <a href="{% url 'logout' %}" class='logout nav-link'>Logout</a>
                 </li>
                 <li class=nav-item>
-                    <span class='navbar-text' style="text-align: right;">{{ user }}</span>
+                    <span class='navbar-text'>{{ user }}</span>
                 </li>
                 <!--ログインしていない時はLoginを表示する-->
                 {% else %}
