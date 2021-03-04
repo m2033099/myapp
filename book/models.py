@@ -1,5 +1,4 @@
 from django.db import models
-from django.contrib.auth import get_user_model
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.urls import reverse
 
@@ -30,6 +29,7 @@ class Book(models.Model):
         MaxValueValidator(10), MinValueValidator(1)])
     recommend_context = models.TextField('おすすめポイント')
     date_posted = models.DateTimeField('投稿時間', auto_now=True)
+    like = models.IntegerField(default=0)
 
     # 管理画面で、タイトルが表示されるようにする。
     def __str__(self):
@@ -37,10 +37,3 @@ class Book(models.Model):
 
     def get_absolute_url(self):
         return reverse('book:book_list')
-
-
-class Like(models.Model):
-    # いいね
-    book = models.ForeignKey('Book', on_delete=models.CASCADE)
-    user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
-    created_at = models.DateTimeField(auto_now_add=True)
