@@ -116,7 +116,11 @@
             <td class="text-center">{{ book.author }}</td>
             <td class="text-center">{{ book.recommend_level }} / 10</td>
             <td class="text-center">
-                <a href="{% url 'book:like' book_id=book.id %}" class="btn btn-primary btn-sm">いいね！({{book.like }})</a>
+                <form action="{% url 'book:like' book_id=book.id %}" method="POST">
+                    {% csrf_token %}
+                    <input type="submit" name="{{ book.id }}" class="like btn btn-primary btn-sm"
+                        value="いいね ({{ book.like }})">
+                </form>
             </td>
             <td class="text-center">
                 <a href="{% url 'book:book_detail' book_id=book.id %}" class="btn btn-primary btn-sm"
@@ -171,6 +175,25 @@
 
 <div style="clear: both;"></div>
 <div style="padding-bottom: 100px;"></div>
+
+<script src="https://code.jquery.com/jquery-3.5.0.js" integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc="
+    crossorigin="anonymous"></script>
+<script type="text/javascript">
+    //いいねボタンが押されたら非同期通信を行う
+    $('.like').on('click', function () {
+        var book_id;
+        book_id = $(this).attr("book_id");
+        alert(book_id);
+        $.ajax({
+            method: $(this).prop("method"),
+            url: $(this).prop("action"),
+            data: book_id,
+            dataType = 'json',
+        }).done(function () {
+
+        })
+    });
+</script>
 
 
 {% endblock content %}
