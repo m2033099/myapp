@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'book/base.html' %}
 {% load static %}
 
 {% block content %}
@@ -25,7 +25,7 @@
     }
 </style>
 <div class="box">
-    <img class="img" src="{% static 'images/books.jpg' %}"></img>
+    <img class="img" src="{% static 'book/books.jpg' %}"></img>
     <h1 class="recommend">おすすめの本を紹介しよう</h1>
 </div>
 
@@ -116,10 +116,7 @@
             <td class="text-center">{{ book.author }}</td>
             <td class="text-center">{{ book.recommend_level }} / 10</td>
             <td class="text-center">
-
-                <a href="{% url 'book:like' book_id=book.id %}" name="{{ book.id }}" type="button"
-                    class="like btn btn-primary btn-sm" value="いいね ({{ book.like }})">いいね ({{ book.like }})</a>
-
+                <a href="{% url 'book:like' book_id=book.id %}" class="btn btn-primary btn-sm">いいね！({{book.like }})</a>
             </td>
             <td class="text-center">
                 <a href="{% url 'book:book_detail' book_id=book.id %}" class="btn btn-primary btn-sm"
@@ -141,7 +138,7 @@
 </table>
 <div style="float: left;">
     {% if books.has_previous %}
-    <a href="?page={{ books.previous_page_number }}" class="btn btn-primary btn-sm">&lt; 前のページ</a>
+    <a href="?page={{ books.previous_page_number }}">&lt; 前のページ</a>
     {% else %}
     <span>&lt; 前のページ</span>
     {% endif %}
@@ -149,7 +146,7 @@
     {{ books.number }}ページ
 
     {% if books.has_next %}
-    <a href="?page={{ books.next_page_number }}" class="btn btn-primary btn-sm">次のページ &gt;</a>
+    <a href="?page={{ books.next_page_number }}">次のページ &gt;</a>
     {% else %}
     <span>次のページ &gt;</span>
     {% endif %}
@@ -171,24 +168,10 @@
     <!--tweetボタン-->
     <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=本を追加しました。#recommend_book">Tweet</a>
 </div>
+
 <div style="clear: both;"></div>
 <div style="padding-bottom: 100px;"></div>
 
-
-<script type="text/javascript">
-    //いいねボタンが押されたら非同期通信を行う
-    $('.like').on('click', function () {
-        var book_id = $(this).attr('name')
-        $.ajax({
-            type: 'POST',
-            url: book_id + '/like',
-            data: {
-                id: book_id
-            },
-        })
-    });
-
-</script>
 
 
 {% endblock content %}
