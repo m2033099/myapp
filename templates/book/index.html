@@ -179,7 +179,6 @@
     //いいねボタンが押されたら非同期通信を行う
     $('.like').on('click', function () {
         var book_id = $(this).attr('name')
-        alert(book_id);
         $.ajax({
             type: 'POST',
             url: book_id + '/like',
