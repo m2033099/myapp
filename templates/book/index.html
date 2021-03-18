@@ -8,15 +8,18 @@
         margin: 0px;
         width: 100%;
     }
+
     .box {
         position: relative;
     }
+
     .box h1 {
         position: absolute;
         color: #ffffff;
         top: 125px;
         left: 50%;
     }
+
     .recommend {
         transform: translate(-50%, 0%);
     }
@@ -113,8 +116,11 @@
             <td class="text-center">{{ book.author }}</td>
             <td class="text-center">{{ book.recommend_level }} / 10</td>
             <td class="text-center">
+                <form>
+                    {% csrf_token %}
                 <a href="javascript:void(0)" id="book_{{ book.id }}" name="{{ book.id }}" type="button"
                     class="like btn btn-primary btn-sm" value="いいね ({{ book.like }})">いいね ({{ book.like }})</a>
+                </form>
             </td>
             <td class="text-center">
                 <a href="{% url 'book:book_detail' book_id=book.id %}" class="btn btn-primary btn-sm"
