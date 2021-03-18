@@ -116,7 +116,11 @@
             <td class="text-center">{{ book.author }}</td>
             <td class="text-center">{{ book.recommend_level }} / 10</td>
             <td class="text-center">
-                <a href="{% url 'book:like' book_id=book.id %}" class="btn btn-primary btn-sm">いいね！({{book.like }})</a>
+                <form>
+                    {% csrf_token %}
+                    <a href="javascript:void(0)" id="book_{{ book.id }}" name="{{ book.id }}" type="button"
+                        class="like btn btn-primary btn-sm" value="いいね ({{ book.like }})">いいね ({{ book.like }})</a>
+                </form>
             </td>
             <td class="text-center">
                 <a href="{% url 'book:book_detail' book_id=book.id %}" class="btn btn-primary btn-sm"
@@ -172,6 +176,52 @@
 <div style="clear: both;"></div>
 <div style="padding-bottom: 100px;"></div>
 
+<script type="text/javascript">
+    function getCookie(name) {
+        var cookieValue = null;
+        if (document.cookie && document.cookie != '') {
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = jQuery.trim(cookies[i]);
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+    var csrftoken = getCookie('csrftoken');
 
+    function csrfSafeMethod(method) {
+        // these HTTP methods do not require CSRF protection
+        return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+    }
+    $.ajaxSetup({
+        crossDomain: false, // obviates need for sameOrigin test
+        beforeSend: function (xhr, settings) {
+            if (!csrfSafeMethod(settings.type)) {
+                xhr.setRequestHeader("X-CSRFToken", csrftoken);
+            }
+        }
+    });
+    //いいねボタンが押されたら非同期通信を行う
+    $('.like').on('click', function () {
+        var book_id = $(this).attr('name')
+
+        $.ajax({
+            type: 'POST',
+            method: 'POST',
+            url: book_id + '/like/',
+            data: {
+                'id': book_id
+            },
+            dataType: 'json'
+        }).done(function (data) {
+            $('#book_' + String(data['book_id'])).text('いいね' + '(' + String(data['book_like']) + ')');
+        })
+    });
+</script>
 
 {% endblock content %}
